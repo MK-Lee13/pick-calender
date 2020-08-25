@@ -1,15 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+function loadView(view) {
+  return () =>
+    import( /* webpackChunkName: "view-[request]" */ `@/views/${view}`);
+}
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  mode: 'history',
+  routes: [{
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Index',
+      component: loadView('')
+    },
+    {
+      path: '/auth',
+      name: 'Login',
+      component: loadView('login')
+    },
+    {
+      path: '/calender',
+      name: 'Calender',
+      component: loadView('calender')
+    },
+    {
+      path: '/chart',
+      name: 'Chart',
+      component: loadView('chart')
+    },
+    {
+      path: '/task',
+      name: 'Job',
+      component: loadView('job')
     }
   ]
 })

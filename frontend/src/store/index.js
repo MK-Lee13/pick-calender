@@ -4,8 +4,7 @@ import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
-import historyStore from '@/store/modules/historyStore';
-import planStore from '@/store/modules/planStore';
+import calenderStore from '@/store/modules/calenderStore';
 
 const store = new Vuex.Store({
   modules: {
