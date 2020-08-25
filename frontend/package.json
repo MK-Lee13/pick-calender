@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Pick Calender Project by LeeMinKyu",
   "author": "koreaaerospaceU <zx811@naver.com>",
   "private": true,
   "scripts": {
@@ -14,8 +14,18 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.4.2",
+    "es6-promise": "^4.2.8",
+    "jquery": "^3.5.1",
+    "jscharting": "^2.9.0-9",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuetify": "^2.2.17",
+    "vuex": "^3.1.2",
+    "vuex-persistedstate": "^2.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
