@@ -7,6 +7,38 @@
 
 import axios from 'axios';
 
-const actions = {};
+const actions = {
+  GET_ALL_TASK: ({
+    commit
+  }, payload) => {
+    return axios.get('/api/task/all', payload, {
+      headers: payload.headers
+    })
+  },
+
+  INSERT_TASK: ({
+    commit
+  }, payload) => {
+    return axios.get('/api/task/insert', payload, {
+      headers: payload.headers
+    })
+  },
+
+  GET_ALL_TASK_TYPE: ({
+    commit
+  }, payload) => {
+    return axios.get('/api/task/type/all', payload, {
+      headers: payload.headers
+    })
+  },
+
+  INSERT_TASK_TYPE: ({
+    commit
+  }, payload) => {
+    return axios.get('/api/task/type/insert', payload, {
+      headers: payload.headers
+    })
+  }
+};
 
 export default actions;
