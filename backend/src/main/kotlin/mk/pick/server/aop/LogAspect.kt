@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component
 class LogAspect {
     private val logger = LoggerFactory.getLogger(LogAspect::class.java)
 
-    @Around("execution(* hob.spring.controller.*.*(..))")
+    @Around("execution(* mk.pick.server.controller.*.*(..))")
     @Throws(Throwable::class)
     fun logging(pjp: ProceedingJoinPoint): Any {
         logger.info("connenct in : ${pjp.signature.declaringTypeName} -> ${pjp.signature.name}") // 함수 실행 전
