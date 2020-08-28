@@ -1,49 +1,32 @@
 <template>
   <div id="drawer">
-    <!-- <v-row
-      class="mx-auto my-5 py-3"
-      :class="{ click: click == 'Login' }"
-      @click="click = 'Login'"
-    >
-      <router-link to="/auth">
-        <img id="drawer-home" class="drawer-img" src="@/assets/menu_home.png" />
-      </router-link>
-    </v-row> -->
-    <v-row
-      class="mx-auto my-5 py-3"
-      :class="{ click: click == 'Calender' }"
-      @click="click = 'Calender'"
-    >
-      <router-link to="/calender">
-        <img
-          id="drawer-history"
-          class="drawer-img"
-          src="@/assets/table_icon.svg"
-        />
-      </router-link>
-    </v-row>
-    <v-row
-      class="mx-auto my-5 py-3"
-      :class="{ click: click == 'Chart' }"
-      @click="click = 'Chart'"
-    >
-      <router-link to="/chart">
-        <img
-          id="drawer-route"
-          class="drawer-img"
-          src="@/assets/chart_icon.svg"
-        />
-      </router-link>
-    </v-row>
-    <v-row
-      class="mx-auto my-5 py-3"
-      :class="{ click: click == 'Job' }"
-      @click="click = 'Job'"
-    >
-      <router-link to="/task">
-        <img id="drawer-plan" class="drawer-img" src="@/assets/task_icon.svg" />
-      </router-link>
-    </v-row>
+    <v-card height="100%" width="100%" class="mx-auto">
+      <v-navigation-drawer permanent>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="head-line">
+              {{ headLine }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list dense nav>
+          <v-list-item v-for="item in items" :key="item.title" link>
+            <v-row @click="remotePath(item.link)">
+              <v-list-item-icon>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-row>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+    </v-card>
   </div>
 </template>
 
@@ -51,30 +34,49 @@
 export default {
   data() {
     return {
-      click: ""
+      click: "",
+      headLine: "Pick Calender",
+      items: [
+        { title: "Calender", icon: "mdi-view-dashboard", link: "/calender" },
+        { title: "Chart", icon: "mdi-image", link: "/chart" },
+        { title: "Task", icon: "mdi-help-box", link: "/task" }
+      ],
+      right: null
     };
   },
+
   mounted() {
     this.click = this.$route.name;
+  },
+
+  methods: {
+    remotePath(link) {
+      var router = this.$router;
+      router.push(link);
+    }
   }
 };
 </script>
 
 <style scoped>
 #drawer {
-  background: peachpuff;
-  width: 6% !important;
+  background-color: aliceblue;
+  width: 10% !important;
   height: 100vh;
   margin: 0;
   color: white;
   text-align: center;
 }
+.head-line {
+  font-weight: bold;
+  font-size: 1vw;
+}
 
-router-link {
+.route {
   text-align: center;
 }
 
 .drawer-img {
-  width: 5vw;
+  width: 6vh;
 }
 </style>
