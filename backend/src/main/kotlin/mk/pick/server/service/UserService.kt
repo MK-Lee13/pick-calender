@@ -1,5 +1,6 @@
 package mk.pick.server.service
 
+import mk.pick.server.model.Task
 import mk.pick.server.model.User
 import mk.pick.server.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,4 +18,7 @@ class UserService: UserServiceInterface {
     override fun create(user: User): User { // 유저를 등록하는 함수
         return userRepository.insert(user)
     }
+
+    val all: List<User>
+        get() = userRepository.findAll()
 }

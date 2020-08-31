@@ -16,10 +16,10 @@ class TaskService: TaskServiceInterface {
     @Autowired
     private lateinit var mongoTemplate: MongoTemplate
 
-    override fun create(task: Task): Task { // 유저를 등록하는 함수
+    override fun create(task: Task): Task {
         return taskRepository.insert(task)
     }
 
-    val all: List<Task> // 유저의 모든 정보를 제공하는 함수
+    val all: List<Task>
         get() = taskRepository.findAll()
 }
